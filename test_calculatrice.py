@@ -1,5 +1,5 @@
 import pytest
-from calculatrice import addition, soustraction, multiplication, division, puissance    
+from calculatrice import addition, soustraction, multiplication, division, puissance
 
 
 def test_addition():
