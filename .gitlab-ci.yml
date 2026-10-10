@@ -1,0 +1,34 @@
+image: python:3.12
+
+stages:
+  - verification
+  - build
+  - deploy
+
+lint:
+  stage: verification
+  script:
+    - pip install flake8
+    - flake8 . --max-line-length=100
+
+test:
+  stage: verification
+  script:
+    - pip install -r requirements.txt
+    - pytest -v
+
+build:
+  stage: build
+  script:
+    - mkdir -p dist
+    - cp calculatrice.py dist/
+  artifacts:
+    paths:
+      - dist/
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploiement simule avec succes"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
