@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - run: pytest -v
+      - run: pytest --cov=calculatrice --cov-report=term-missing -v
 
   build:
     name: Construction du paquet
